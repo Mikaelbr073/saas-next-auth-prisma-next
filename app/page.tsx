@@ -14,8 +14,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import logo from './assets/logo.svg';
 import womanImg from './assets/woman.svg';
+import { auth } from '@/auth';
 
 export default async function Home() {
+
+  const session = await auth();
+  const userName = session?.user?.name ?? '';
+
   return (
     <main>
       <section className="container mx-auto text-center pb-20 px-2 md:px-0">

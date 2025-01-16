@@ -1,6 +1,7 @@
 'use server'
 import db from "@/lib/db";
 import { hashSync } from "bcrypt-ts";
+import { redirect } from "next/navigation";
 export default async function RegisterAction(_prevState: any, formData: FormData) {
 
     const entries = Array.from(formData.entries());
@@ -42,10 +43,7 @@ export default async function RegisterAction(_prevState: any, formData: FormData
     })
 
 
-    return {
-        mensage: 'Cadastro Realizado com sucesso',
-        success: true
-    }
+    return redirect('/')
 
 
 
